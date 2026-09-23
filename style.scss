@@ -1,0 +1,261 @@
+:root {
+  --blacktext-color: #333;
+  --darktext-color: #666;
+  --graytext-color: #888;
+  --lightborder-color: #ddd;
+
+  --ivory-color: #fbfbfb;
+  --smoke-color: #f6f7f8;
+  --cream-color: #fefcef;
+  --brightgreen-color: #80bc14;
+  --lightgreen-color: #e9f2c3;
+  --brightyellow-color: #f5d730;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--ivory-color);
+  color: var(--blacktext-color);
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  list-style-type: none;
+  line-height: 1.5em;
+}
+
+a {
+  color: inherit;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+li {
+  color: inherit;
+}
+
+header {
+  background-color: var(--cream-color);
+  border-bottom: 1px var(--lightborder-color) solid;
+  overflow: hidden;
+  text-align: center;
+}
+
+main .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 0;
+  gap: 3em;
+}
+
+.mainmenu {
+  background: white;
+  border-bottom: 1px var(--lightborder-color) solid;
+  padding: 1em 0;
+  ul {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    li {
+      list-style-type: none;
+    }
+  }
+}
+
+.content {
+  flex: 1 1 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  min-width: 30px;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.breadcrumb ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0.5em 0;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  li {
+    list-style-type: none;
+    color: var(--graytext-color);
+    &:not(:last-child)::after {
+      content: "-";
+      margin: 0 0.5em;
+    }
+  }
+}
+
+.item h1 {
+  margin: 1em 0;
+}
+
+.params {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.photo {
+  border: 1px var(--lightborder-color) solid;
+  flex: 1 1 50%;
+  img {
+    width: 100%;
+  }
+}
+
+.info {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.packaging {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: var(--cream-color);
+  width: 100%;
+  li {
+    list-style-type: none;
+
+    border: 1px solid var(--lightborder-color);
+    cursor: pointer;
+    flex: 1 1;
+    text-align: center;
+    &.active {
+      background-color: var(--lightgreen-color);
+      cursor: unset;
+    }
+    &:hover {
+      background-color: var(--lightgreen-color);
+    }
+    &:not(:first-child) {
+      border-left: none;
+    }
+  }
+}
+
+.newprice {
+  font-size: 2em;
+  margin: 1.5em 0 0.5em;
+}
+.oldprice {
+  text-decoration: line-through;
+  color: var(--darktext-color);
+}
+
+.my-cart-btn {
+  line-height: 1em;
+  border: 1px solid var(--lightborder-color);
+  padding: 1em;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: var(--lightgreen-color);
+  &:hover {
+    background-color: var(--blacktext-color);
+    color: var(--brightyellow-color);
+  }
+  &::before {
+    font-family: "themify";
+    content: "\e60d";
+    margin-right: 0.5em;
+    font-size: 1.25em;
+  }
+}
+
+.packaging li,
+.my-cart-btn {
+  padding: 1em;
+}
+
+.categories {
+  flex: 1 1 25%;
+  h3 {
+    background-color: var(--cream-color);
+    border: 1px solid var(--lightborder-color);
+    margin: 0;
+  }
+  h3,
+  li {
+    padding: 10px 20px;
+    &.active {
+      background-color: var(--lightgreen-color);
+      a {
+        cursor: unset;
+        text-decoration: none;
+      }
+    }
+  }
+  ul {
+    padding: 0;
+    background-color: var(--smoke-color);
+    margin: 0;
+    li {
+      list-style-type: none;
+      border: 1px solid var(--lightborder-color);
+      border-top: none;
+    }
+  }
+}
+
+footer {
+  border-top: 1px var(--lightborder-color) solid;
+  background-color: var(--cream-color);
+  overflow: hidden;
+}
+
+.companyinfo {
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+  li {
+    list-style-type: none;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+  .content {
+    flex-basis: 60%;
+    .params {
+      flex-direction: column;
+    }
+  }
+  .categories {
+    flex-basis: 40%;
+  }
+}
+
+@media (max-width: 767px) {
+  main .container {
+    flex-direction: column;
+  }
+  .packaging li,
+  .my-cart-btn {
+    padding: 0.5em;
+  }
+}
+
+@media (max-width: 576px) {
+  .params {
+    flex-direction: column;
+  }
+  .mainmenu ul,
+  .companyinfo {
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+  }
+}
